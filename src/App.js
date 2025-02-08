@@ -59,8 +59,8 @@ export default function App() {
         {selectedFriend && (
           <FormSplitBill
             selectedFriend={selectedFriend}
-            friends={friends}
             onSpilitBill={handleSpilitBill}
+            key={selectedFriend.id}
           />
         )}
       </div>
@@ -146,7 +146,8 @@ function AddFriend({ onClick }) {
     </form>
   );
 }
-function FormSplitBill({ selectedFriend, friends, onSpilitBill }) {
+
+function FormSplitBill({ selectedFriend, onSpilitBill }) {
   const [bill, setBill] = useState("");
   const [userExpense, setUserExpense] = useState("");
   const friendBill = bill > 0 ? bill - userExpense : "";
